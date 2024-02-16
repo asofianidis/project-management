@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data;
 
@@ -13,4 +14,6 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql(_configuration.GetConnectionString("default"));
+
+    public DbSet<User> Users { get; set; }
 }
